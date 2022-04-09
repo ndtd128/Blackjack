@@ -68,3 +68,69 @@ void Deck::draw(Deck& comingFrom)
 	deck.push_back(comingFrom.getCard(0));
 	comingFrom.removeCard(0);
 }
+
+void Deck::moveAllToDeck(Deck& moveTo)
+{
+	int deckSize = deck.size();
+	for (size_t i = 0; i < deckSize; ++i)
+	{
+		moveTo.addCard(deck[i]);
+	}
+	
+	deck.erase(deck.begin(), deck.end());
+}
+
+int Deck::getTotalValue()
+{
+	int totalValue = 0;
+	int aceCnt = 0;
+	for (auto c : deck) {
+		switch (c.getValue())
+		{
+		case Value::TWO:
+			totalValue += 2;
+			break;
+		case Value::THREE:
+			totalValue += 3;
+			break;
+		case Value::FOUR:
+			totalValue += 4;
+			break;
+		case Value::FIVE:
+			totalValue += 5;
+			break;
+		case Value::SIX:
+			totalValue += 6;
+			break;
+		case Value::SEVEN:
+			totalValue += 7;
+			break;
+		case Value::EIGHT:
+			totalValue += 8;
+			break;
+		case Value::NINE:
+			totalValue += 9;
+			break;
+		case Value::TEN:
+		case Value::JACK:
+		case Value::QUEEN:
+		case Value::KING:
+			totalValue += 10;
+			break;
+		case Value::ACE:
+			++aceCnt;
+			break;
+		default:
+			break;
+		}
+	}
+
+	for (size_t i = 0; i < aceCnt; i++)
+	{
+		if (totalValue > 10)
+			totalValue += 1;
+		else totalValue += 11;
+	}
+
+	return totalValue;
+}
