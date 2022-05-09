@@ -75,14 +75,22 @@ void RenderWindow::display()
     SDL_RenderPresent(renderer);
 }
 
-void RenderWindow::render(const int& x, const int& y, SDL_Texture* tex)
+void RenderWindow::render(const int& x, const int& y, BaseObject obj)
 {
 
     SDL_Rect dst;
     dst.x = x;
     dst.y = y;
+    dst.w = obj.getFrame().w;
+    dst.h = obj.getFrame().h;
 
-    SDL_QueryTexture(tex, NULL, NULL, &dst.w, &dst.h);
 
-    SDL_RenderCopy(renderer, tex, NULL, &dst);
+    SDL_RenderCopy(renderer, obj.getTex(), NULL, &dst);
+}
+
+void RenderWindow::render(const int& x, const int& y, const int& w, const int& h, BaseObject obj)
+{
+    SDL_Rect dst = { x,y,w,h };
+
+    SDL_RenderCopy(renderer, obj.getTex(), NULL, &dst);
 }

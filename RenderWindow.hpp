@@ -1,11 +1,11 @@
-#ifndef RENDERWINDOW_HPP_INCLUDED
-#define RENDERWINDOW_HPP_INCLUDED
+#pragma once
 
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <string>
 
+#include "BaseObject.h"
 
 class RenderWindow
 {
@@ -19,7 +19,8 @@ public:
     SDL_Texture* loadTexture (const std::string& p_filePath);
     void renderClear();
     void display();
-    void render(const int& x, const int& y, SDL_Texture* tex);
+    void render(const int& x, const int& y, BaseObject obj);
+    void render(const int& x, const int& y, const int& w, const int& h, BaseObject obj);
     
 
 private:
@@ -27,6 +28,3 @@ private:
     SDL_Renderer* renderer;
 };
 
-
-
-#endif // RENDERWINDOW_HPP_INCLUDED
