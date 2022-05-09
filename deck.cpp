@@ -62,6 +62,11 @@ void Deck::addCard(const Card& p_card)
 	deck.push_back(p_card);
 }
 
+void Deck::addCard(const Value& v, const Suit& s)
+{
+	deck.push_back(Card(v, s));
+}
+
 void Deck::draw(Deck& comingFrom)
 {
 	//0 mean top of the deck that we draw
