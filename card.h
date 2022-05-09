@@ -12,9 +12,12 @@ public:
 	Card(const Value& p_value, const Suit& p_suit);
 	~Card() {}
 
+	std::string valString();
+	std::string suitString();
 	std::string toString();
 	void print();
 	Value getValue() { return value; }
+	Suit getSuit() { return suit; }
 
 private:
 	Value value;
