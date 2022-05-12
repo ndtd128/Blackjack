@@ -7,11 +7,12 @@
 	BEGIN, SPADE, CLUB, DIAMOND, HEART, END
 };
 
- enum class	gamePhase {
+ enum class	gameScene {
 	 PLAYER_PHASE, DEALER_PHASE
  };
- enum class gameState {
-	 PLAYING, BLACK_JACK, BUSTS, PUSH, WIN, LOSE
+
+ enum class gameResult {
+	 BEGIN, CONTINUE, P_BLACK_JACK, D_BLACK_JACK, PUSH, WIN, LOSE, P_BUSTS, D_BUSTS
  };
 
 inline Value& operator ++ (Value& e)

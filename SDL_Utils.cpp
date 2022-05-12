@@ -1,6 +1,7 @@
 #include "SDL_Utils.h"
 
-bool init(SDL_Window* &window, SDL_Renderer* &renderer, const int& p_w, const int& p_h, const char p_title[], const char iconFile[])
+bool init(SDL_Window* &window, SDL_Renderer* &renderer, const int& p_w, const int& p_h, 
+          const char p_title[], const char iconFile[])
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
         std::cout << "SDL Init has failed. Error: " << SDL_GetError() << std::endl;
@@ -33,7 +34,7 @@ bool init(SDL_Window* &window, SDL_Renderer* &renderer, const int& p_w, const in
         std::cout << "Unable to create renderer. Error: " << SDL_GetError() << std::endl;
         return false;
     }
-
+    
     return true;
 }
 

@@ -27,5 +27,7 @@ private:
 };
 
 static BaseObject table;
+static BaseObject result;
 static BaseObject cardObj[13][4];
 static BaseObject backCard;
+static BaseObject cardIcon;
