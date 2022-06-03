@@ -4,10 +4,13 @@
 const int SCREEN_WIDTH = 1366;
 const int SCREEN_HEIGHT = 768;
 const char WINDOW_TITLE[] = "Blackjack";
-const int DELAY_TIME = 1000;
+const char ICON_FILE_PATH[] = "image/icon.png";
+
+const int DELAY_TIME = 1500;
+const int menuItem = 2;
 
 //Game starter pack
-const int PLAYER_START_CASH = 100;
+const int PLAYER_START_CASH = 1000;
 const int BLACK_JACK = 21;
 
 const int FULL_DECK_SIZE = 52;

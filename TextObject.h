@@ -5,18 +5,15 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 
+#include "myEnum.h"
+
 class TextObject
 {
 public:
 	TextObject();
 	~TextObject();
 
-	enum textColor
-	{
-		WHITE = 0,
-		BLACK = 1,
-		RED = 2
-	};
+
 
 	void loadText(SDL_Renderer* ren, TTF_Font* font);
 	void render(SDL_Renderer* ren, const int& x, const int& y);
@@ -29,7 +26,7 @@ public:
 	int getHeight() const { return height; }
 	std::string getContent() const { return content; }
 
-
+	bool checkFocus(const SDL_Point& m_pos, const SDL_Point& button_pos);
 private:
 	std::string content;
 	SDL_Color color;
@@ -37,9 +34,3 @@ private:
 	int width;
 	int height;
 };
-
-static TTF_Font* textFont = nullptr;
-
-static TextObject t_pTotalVal;
-static TextObject t_dTotalVal;
-static TextObject t_remainCards;

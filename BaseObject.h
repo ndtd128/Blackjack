@@ -5,8 +5,6 @@
 #include <iostream>
 #include <string>
 
-
-
 class BaseObject
 {
 public:
@@ -19,15 +17,9 @@ public:
 	void loadTexture(SDL_Renderer* &ren, const std::string& filePath);
 	void render(SDL_Renderer* ren, const int& x, const int& y);
 	void render(SDL_Renderer* ren, const int& x, const int& y, const int& w, const int& h);
-
+	void render(SDL_Renderer* ren, const int& x, const int& y, const int& w, const int& h, const SDL_Rect& src);
 
 private:
 	SDL_Texture* object;
 	SDL_Rect frame;
 };
-
-static BaseObject table;
-static BaseObject result;
-static BaseObject cardObj[13][4];
-static BaseObject backCard;
-static BaseObject cardIcon;

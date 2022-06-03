@@ -6,7 +6,7 @@ TextObject::TextObject()
 	color = { 255,255,255,255 };//white
 	width = 0;
 	height = 0;
-	content = "";
+	content = " ";
 }
 
 TextObject::~TextObject()
@@ -14,6 +14,9 @@ TextObject::~TextObject()
 	if (texture != nullptr) {
 		SDL_DestroyTexture(texture);
 		texture = nullptr;
+		width = 0;
+		height = 0;
+		content = " ";
 	}
 }
 
@@ -53,8 +56,17 @@ void TextObject::setColor(const int& type)
 	case RED:
 		color = { 255,0,0,255 };
 		break;
+	case YELLOW:
+		color = { 255,255,0,255 };
+		break;
 	default:
 		color = { 255,255,255,255 };
 		break;
 	}
+}
+
+bool TextObject::checkFocus(const SDL_Point& m_pos, const SDL_Point& button_pos)
+{
+	return (button_pos.x <= m_pos.x && m_pos.x <= button_pos.x + width
+			&& button_pos.y <= m_pos.y && m_pos.y <= button_pos.y + height);
 }

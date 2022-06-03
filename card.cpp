@@ -26,3 +26,8 @@ void Card::print()
 {
 	std::cout << toString() << std::endl;
 }
+
+bool Card::operator==(const Card& compareWith)
+{
+	return (value == compareWith.value && suit == compareWith.suit);
+}

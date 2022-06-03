@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <algorithm>
 #include "card.h"
 #include "gameConstants.h"
 
@@ -17,6 +18,7 @@ public:
 
 	Card getCard(const int& pos);
 	void removeCard(const int& pos);
+	void removeCard(const Value& v, const Suit& s);
 	void addCard(const Card& p_card);
 	void addCard(const Value& v, const Suit& s);
 	void draw(Deck& comingFrom);

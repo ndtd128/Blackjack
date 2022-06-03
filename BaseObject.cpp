@@ -35,3 +35,9 @@ void BaseObject::render(SDL_Renderer* ren, const int& x, const int& y, const int
 	frame = { x,y,w,h };
 	SDL_RenderCopy(ren, object, NULL, &frame);
 }
+
+void BaseObject::render(SDL_Renderer* ren, const int& x, const int& y, const int& w, const int& h, const SDL_Rect& src)
+{
+	frame = { x,y,w,h };
+	SDL_RenderCopy(ren, object, &src, &frame);
+}

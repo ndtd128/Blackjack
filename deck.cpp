@@ -33,16 +33,16 @@ void Deck::print()
 void Deck::shuffle()
 {
 	
-	std::vector<Card> tmpDeck;
+	std::vector<Card> tmplayerDeck;
 	const int& originSize = deck.size();
 	int randomNum = -1;
 	for (unsigned int i = 0; i < originSize; ++i) {
 		randomNum = rand() % deck.size();
 		//Card tmpCard = deck[randomNum]
-		tmpDeck.push_back(deck[randomNum]);
+		tmplayerDeck.push_back(deck[randomNum]);
 		deck.erase(deck.begin() + randomNum);
 	}
-	for (auto c : tmpDeck) {
+	for (auto c : tmplayerDeck) {
 		deck.push_back(c);
 	}
 }
@@ -55,6 +55,15 @@ Card Deck::getCard(const int& pos)
 void Deck::removeCard(const int& pos)
 {
 	deck.erase(deck.begin() + pos);
+}
+
+void Deck::removeCard(const Value& v, const Suit& s)
+{
+	Card rmCard(v, s);
+	auto it = std::find(deck.begin(), deck.end(), rmCard);
+	if (it != deck.end()) {
+		deck.erase(it);
+	}
 }
 
 void Deck::addCard(const Card& p_card)

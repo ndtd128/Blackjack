@@ -19,6 +19,8 @@ public:
 	Value getValue() { return value; }
 	Suit getSuit() { return suit; }
 
+	bool operator ==(const Card& compareWith);
+
 private:
 	Value value;
 	Suit suit;

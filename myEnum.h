@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 
  enum class Value {
 	BEGIN, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE, END
@@ -8,11 +9,20 @@
 };
 
  enum class	gameScene {
-	 PLAYER_PHASE, DEALER_PHASE
+	 START_MENU, BET, PLAYER_PHASE, DEALER_PHASE, PLAY_AGAIN
  };
 
  enum class gameResult {
 	 BEGIN, CONTINUE, P_BLACK_JACK, D_BLACK_JACK, PUSH, WIN, LOSE, P_BUSTS, D_BUSTS
+ };
+
+ enum textColor
+ {
+	 WHITE, BLACK, RED, YELLOW
+ };
+
+ enum menuChoice {
+	 PLAY, EXIT, PLAY_AGAIN
  };
 
 inline Value& operator ++ (Value& e)
